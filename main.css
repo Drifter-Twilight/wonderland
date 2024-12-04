@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "lment";
+  src: url("./assets/fonts/lment/Lment-v02.otf");
+}
+
+:root, 
+a:hover,input[type="button"]:hover, button:hover
+{
+  cursor: none;
+}
+
+html, 
+body, 
+#__nuxt {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: "lment", "微軟正黑體", monospace;
+  scrollbar-width: none;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

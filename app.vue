@@ -1,13 +1,23 @@
 <template>
-  <div ref='divRef' class="w-[300px] h-[300px] bg-blue-300">
-    <a-button>点击</a-button>
-  </div>
+  <nuxt-layout>
+    <!-- header -->
+    <template #header>
+      <w-header-container />
+    </template>
+
+    <!-- content -->
+    <a-row justify="center" align="center" class="h-full">
+      <a-col :span="24" class="h-full">
+        <nuxt-page />
+      </a-col>
+    </a-row>
+  </nuxt-layout>
+
+  <w-mouse />
 </template>
 
 <script setup>
-const div = useTemplateRef('divRef')
-
-onMounted(() => {
-  console.log(div)
-})
 </script>
+
+<style scoped>
+</style>
