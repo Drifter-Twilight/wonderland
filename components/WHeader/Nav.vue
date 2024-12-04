@@ -1,20 +1,21 @@
 <template>
   <a-col 
-    :xs="24" :lg="{ span: 7, offset: 12 }" :xxl="{ span: 6, offset: 13 }"
+    :xs="24" :lg="{ span: 7, offset: 11 }" :xxl="{ span: 5, offset: 14 }"
     class=" text-lg 2xl:text-xl font-semibold">
     <ul 
-      v-for="item in headList"
-      :key="item.to"
       class="w-full h-full"
       :class="{'flex justify-between items-center': mode == 'horizontal', 'mb-8': mode == 'vertical'}">
-      <li class="flex-center h-[64px]">
+      <li 
+        v-for="item in headList"
+        :key="item.to"
+        class="flex-center h-[64px]">
         <nuxt-link :to="item.to" active-class="active-link">{{ item.content }}<small class="text-xs">/{{ item.en }}</small></nuxt-link>
       </li>
     </ul>
   </a-col>
 
   <a-col 
-    :xs="24" :lg="2" 
+    :xs="24" :lg="2" :xxl="1" 
     class="flex items-center -translate-y-[4px]"
     :class="{'justify-evenly': mode == 'horizontal', 'justify-center space-x-6': mode == 'vertical'}">
       <a href="javascript:;">
@@ -46,7 +47,7 @@ const headList = reactive([
   },
   {
     to: '/notes',
-    content: '文章',
+    content: '笔记',
     en: 'notes'
   },
   {

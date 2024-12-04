@@ -35,7 +35,9 @@
         unmountOnClose
         :mask="false"
         class="translate-y-[64px]">
-        <w-header-nav mode="vertical" />
+        <a-row>
+          <w-header-nav mode="vertical" />
+        </a-row>
       </a-drawer>
     </a-col>
   </a-row>
@@ -43,6 +45,9 @@
 
 <script setup>
 let isOpen = useMediaQuery('(min-width: 992px)')
+onMounted(() => {
+  console.log(isOpen)
+})
 
 let showMenu = ref(false)
 function toggleMenu() {
