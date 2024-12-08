@@ -19,6 +19,12 @@ body,
   scrollbar-width: none;
 }
 
+body {
+  background-color: var(--color-bg-1);
+  color: var(--color-text-1);
+  color-scheme: dark;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;

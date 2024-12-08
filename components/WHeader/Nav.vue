@@ -1,7 +1,7 @@
 <template>
   <a-col 
     :xs="24" :lg="{ span: 7, offset: 11 }" :xxl="{ span: 5, offset: 14 }"
-    class=" text-lg 2xl:text-xl font-semibold">
+    class="text-lg 2xl:text-xl font-semibold">
     <ul 
       class="w-full h-full"
       :class="{'flex justify-between items-center': mode == 'horizontal', 'mb-8': mode == 'vertical'}">

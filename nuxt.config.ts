@@ -11,5 +11,10 @@ export default defineNuxtConfig({
   arco: {
     importPrefix: 'A',
     hookPrefix: 'Arco',
+  },
+  imports: {
+    dirs: [
+      'constants/**'
+    ]
   }
 })

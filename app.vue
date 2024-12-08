@@ -14,9 +14,13 @@
   </nuxt-layout>
 
   <w-mouse />
+  <!-- <w-background /> -->
 </template>
 
-<script setup>
+<script setup lang="ts">
+onMounted(() => {
+  document.body.setAttribute('arco-theme', 'dark')
+})
 </script>
 
 <style scoped>
