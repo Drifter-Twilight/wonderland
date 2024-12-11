@@ -1,22 +1,21 @@
 <template>
-  <w-transition-fade>
+  <nuxt-layout name="intro">
     <div class="relative w-full h-full">
       <p class="wonderland" data-word="WONDERLAND">WONDERLAND</p>
       <p class="source" data-before="PWOER BY " data-after="WITT">PWOER BY <span>WITT</span></p>
       <p class="skip" @click="enterHome">Skip</p>
 
-      <img 
-        src="/public/images/svg/decoration.svg" alt="decoration" 
-        class="decoration">
-      <img 
-        src="/public/images/svg/welcome.svg" alt="welcome" 
-        @animationend="enterHome"
-        class="welcome">
+      <img src="/public/images/svg/decoration.svg" alt="decoration" class="decoration">
+      <img src="/public/images/svg/welcome.svg" alt="welcome" @animationend="enterHome" class="welcome">
     </div>
-  </w-transition-fade>
+  </nuxt-layout>
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: false,
+})
+
 let timeout: NodeJS.Timeout
 function enterHome() {
   timeout = setTimeout(() => {
@@ -148,7 +147,7 @@ p {
     color: #ff00ff;
     z-index: -1;
     transform-origin: left bottom;
-    animation: magenta-enter 0.5s linear 3, magenta-flash 0.5s ease-in 1.5s infinite;
+    animation: magenta-enter 0.8s linear 3, magenta-flash 0.5s ease-in 2.4s infinite;
     filter: contrast(200%);
   }
 
@@ -159,7 +158,7 @@ p {
     top: 0;
     left: -5px;
     z-index: -1;
-    animation: cyan-height 1.5s ease-out 1.5s infinite;
+    animation: cyan-height 1.5s ease-out 2.4s infinite;
   }
 }
 
