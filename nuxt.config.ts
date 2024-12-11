@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     'arco-design-nuxt-module',
     '@vueuse/nuxt',
   ],
-  css: ['@/main.css'],
+  css: ['animate.css', '@/main.css'],
   arco: {
     importPrefix: 'A',
     hookPrefix: 'Arco',

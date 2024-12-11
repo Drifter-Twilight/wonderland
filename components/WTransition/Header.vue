@@ -1,5 +1,7 @@
 <template>
-  <Transition name="fade">
+  <Transition 
+    enter-active-class="animate__animated animate__fadeIn"
+    leave-active-class="animate__animated animate__fadeOut">
     <slot :is-move="isMove"></slot>
   </Transition>
 </template>
@@ -24,13 +26,4 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <w-fade-transition #="{ isMove }">
+  <w-transition-header #="{ isMove }">
     <a-layout-header v-show="isMove" class="h-[64px] z-[1003]">
       <a-row v-if="isOpen" justify="space-between" align="center" class="h-full">
         <a-col :span="3" class="flex-center">
@@ -37,7 +37,7 @@
         </a-col>
       </a-row>
     </a-layout-header>
-  </w-fade-transition>
+  </w-transition-header>
 </template>
 
 <script setup lang="ts">
