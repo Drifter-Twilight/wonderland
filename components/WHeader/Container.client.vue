@@ -1,10 +1,10 @@
 <template>
   <w-transition-header #="{ isMove }">
-    <a-layout-header v-show="isMove" class="h-[64px] z-[1003]">
+    <a-layout-header v-show="isMove" class="layout-header h-[64px] z-[1003]">
       <a-row v-if="isOpen" justify="space-between" align="center" class="h-full">
         <a-col :span="3" class="flex-center">
-          <router-link to="/">
-            <h1>LOGO</h1>
+          <router-link to="/home">
+            <img src="/public/images/svg/logo.svg" alt="logo" style="width: 2em;">
           </router-link>
         </a-col>
 
@@ -50,8 +50,14 @@ function toggleMenu() {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: "lment";
+  src: url("/assets/fonts/lment/Lment-v02.otf");
+}
 
-
+.layout-header {
+  font-family: "lment", "微軟正黑體", monospace;
+}
 
 .togglemenu-label {
   width: 100%;
