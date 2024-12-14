@@ -18,6 +18,12 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  pageTransition: {
+    name: 'home'
+  }
+})
+
 const swiper = useTemplateRef('swiperRef')
 
 function hander(condition1: boolean, condition2?: boolean) {

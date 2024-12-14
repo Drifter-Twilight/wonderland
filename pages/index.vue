@@ -14,6 +14,9 @@
 <script setup lang="ts">
 definePageMeta({
   layout: false,
+  pageTransition: {
+    name: 'intro'
+  }
 })
 
 let timeout: NodeJS.Timeout

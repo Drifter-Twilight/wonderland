@@ -1,0 +1,7 @@
+.intro-leave-active {
+  animation: fadeOut .5s linear;
+}
+
+.home-enter-active {
+  animation: fadeIn .5s linear;
+}
