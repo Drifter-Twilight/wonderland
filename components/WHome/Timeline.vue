@@ -107,13 +107,4 @@ const timelineArr = reactive([
   font-size: large;
   font-weight: bold;
 }
-
-.overflow-omission {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  text-wrap: wrap;
-  overflow-wrap: break-word;
-}
 </style>

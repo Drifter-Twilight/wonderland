@@ -24,3 +24,16 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.scroll-none {
+  scrollbar-width: none;
+}
+
+.overflow-omission {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+}
