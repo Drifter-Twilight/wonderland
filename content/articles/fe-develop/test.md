@@ -1,7 +1,7 @@
 ---
 title: "HTML详解 -- 交互内容"
 description: "高亮（Highlight）是一种改变文本外观以突出显示特定内容的技术，有助于提高文本的可读性和信息传达效果。通常用于强调或突出显示文本中的范围内容，帮助读者快速识别重要内容。高亮通常通过改变文本的颜色、背景色或字体样式（如加粗或斜体）来实现。比如在复制文本内容时，选择的文本默认会出现蓝色背景跟字体变白，这就是一种高亮效果。"
-img: "~/images/jpg-png-webp/articles/cover.webp"
+img: "~/public/images/jpg-png-webp/articles/cover.webp"
 date: "2023-9-26"
 update: []
 tags: ["HTML", "JavaScript"]
@@ -15,7 +15,7 @@ HTML提供了一系列有助于创建交互式用户界面对象的元素。称�
 
 在各种组件库中都可以看到dialog对话框的信息页，`<dialog>`就类似于组件库中的dialog对话框。不过可能`<dialog>`是HTML5新增的元素，兼容性没那么好，组件库一般都是用`<div role='dialog'>`实现的。
 
-![test.webp](/images/jpg-png-webp/articles/test.webp)
+![test.webp](~/public/images/jpg-png-webp/articles/test.webp)
 
 ### 属性
 `<dialog>`身上除了全局属性外还有一个`open`属性，值为`true`时，显示`<dialog>`并可以与之交互。如果未设置`open`属性或值为`false`时，则不应向用户显示对话框。
