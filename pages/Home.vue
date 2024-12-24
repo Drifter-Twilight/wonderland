@@ -5,7 +5,7 @@
         style="scrollbar-width: none;">
         <w-home-logo :show />
 
-        <w-home-timeline />
+        <w-home-timeline /> 
 
         <div class="flex-center fixed flex-col right-0 top-0 w-12 h-full space-y-5">
           <div v-for="item in 2" :key="item" @click="clickHander"
