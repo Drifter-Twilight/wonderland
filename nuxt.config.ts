@@ -22,5 +22,8 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark'
     }
+  },
+  app: {
+    baseURL: '/wonderland/'
   }
 })
