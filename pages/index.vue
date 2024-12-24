@@ -13,17 +13,14 @@
 
 <script setup lang="ts">
 definePageMeta({
-  layout: false,
-  pageTransition: {
-    name: 'intro'
-  }
+  layout: false
 })
 
 let timeout: NodeJS.Timeout
 function enterHome() {
   timeout = setTimeout(() => {
     navigateTo('/home')
-  }, 1000)
+  }, 500)
 }
 
 onUnmounted(() => {

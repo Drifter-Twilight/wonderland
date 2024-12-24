@@ -4,11 +4,7 @@
       <w-header-container />
     </template>
 
-    <a-row justify="center" align="center" class="h-full">
-      <a-col :span="24" class="relative h-full">
-        <nuxt-page />
-      </a-col>
-    </a-row>
+    <nuxt-page />
   </nuxt-layout>
 
   <w-mouse />

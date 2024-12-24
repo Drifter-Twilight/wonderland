@@ -1,0 +1,165 @@
+.content-container h2, h3, h4, h5, h6 {
+  color: #D69340;
+  font-weight: bolder;
+}
+
+.content-container h2 {
+  font-size: 1.5em;
+  margin: .75em 0;
+}
+
+.content-container h2::before {
+  content: "# ";
+}
+
+.content-container h3 {
+  font-size: 1.17em;
+  margin: .75em 0;
+}
+
+.content-container h3::before {
+  content: ">>> ";
+}
+
+.content-container h4 {
+  margin: 1.12em 0;
+}
+
+.content-container h4::before {
+  content: "✦ ";
+}
+
+.content-container h5 {
+  font-size: .83em;
+  margin: 1.5em 0;
+}
+
+.content-container h6 {
+  font-size: .75em;
+  margin: 1.67em 0;
+}
+
+.content-container p {
+  margin: 22px 0;
+  line-height: 1.75;
+}
+
+.content-container code {
+  box-sizing: border-box;
+  padding: .195em .4em;
+  margin: 0 .15rem;
+  border-radius: .25rem;
+  letter-spacing: 1px;
+  background-color: rgba(214, 147, 64, .3);
+}
+
+.content-container ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.content-container ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+.content-container li {
+  list-style: inherit;
+  line-height: 1.75;
+}
+
+.content-container strong {
+  color: #D69340;
+  font-weight: 700;
+}
+
+.content-container strong::before {
+  content: "「";
+}
+
+.content-container strong::after {
+  content: "」";
+}
+
+.content-container i {
+  color: #D69340;
+}
+
+.content-container a {
+  color: #D69340;
+  text-decoration: underline solid #D69340;
+  text-underline-offset: 5px;
+}
+
+.content-container h2 > a,
+.content-container h3 > a, 
+.content-container h4 > a, 
+.content-container h5 > a, 
+.content-container h6 > a {
+  text-decoration: none;
+}
+
+.content-container del {
+  color: #D69340;
+}
+
+.content-container pre {
+  background-color: #282c34;
+  border-radius: .5rem;
+  box-shadow: 0 0 3px #141414;
+}
+
+.content-container pre > code {
+  overflow-x: auto;
+  background-color: transparent;
+  padding: 15px 12px;
+  padding-left: 0;
+}
+
+.content-container code:not(pre > code) {
+  color:#D69340;
+}
+
+.content-container img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: .5rem;
+  width: 80%;
+  box-shadow: 0 0 5px #D69340;
+}
+
+.content-container blockquote {
+  border-left: 3px solid #D69340;
+  background-color: rgba(214, 146, 64, 0.5);
+}
+
+.content-container blockquote::before {
+  content: '“';
+  font-weight: bolder;
+  font-size: larger;
+  color: #D69340;
+}
+
+.content-container table {
+  border: 2px solid #D69340;
+  border-collapse: collapse;
+}
+
+.content-container table > thead {
+  border-bottom: 2px solid #D69340;
+  background-color: #D69340;
+}
+
+.content-container table th {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: #D69340;
+}
+
+.content-container th, td {
+  padding: 12px 7px;
+}
+
+.content-container table td {
+  border: 1px solid #D69340;
+}

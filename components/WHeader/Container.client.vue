@@ -1,6 +1,6 @@
 <template>
   <w-transition-header #="{ isMove }">
-    <a-layout-header v-show="isMove" class="layout-header h-[64px] z-[1003]">
+    <a-layout-header v-show="isMove" class="layout-header h-[64px] z-[1003] bg-gradient-to-b from-[#141414] to-transparen">
       <a-row v-if="isOpen" justify="space-between" align="center" class="h-full">
         <a-col :span="3" class="flex-center">
           <router-link to="/home">

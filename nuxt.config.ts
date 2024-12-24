@@ -6,8 +6,9 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'arco-design-nuxt-module',
     '@vueuse/nuxt',
+    '@nuxt/content'
   ],
-  css: ['animate.css', '@/main.css', '@/assets/css/transition.css'],
+  css: ['animate.css', '@/main.css', '@/assets/css/transition.css', '@/assets/css/content.css'],
   arco: {
     importPrefix: 'A',
     hookPrefix: 'Arco',
@@ -16,5 +17,10 @@ export default defineNuxtConfig({
     dirs: [
       'constants/**'
     ]
+  },
+  content: {
+    highlight: {
+      theme: 'github-dark'
+    }
   }
 })

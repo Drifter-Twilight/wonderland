@@ -1,9 +1,20 @@
 <template>
-  <w-articles-list v-for="item in 5" :key="item" :data-index="item" />
+  <a-col :xs="24" :sm="24" :lg="5" class="lg:h-full">
+    <w-articles-tab-bar />
+  </a-col>
+
+  <a-col :xs="24" :sm="24" :lg="19" class="overflow-auto scroll-none h-full">
+    <ContentList path="/articles" #="{ list }">
+      <div v-for="article in list" :key="article._path">
+        <NuxtLink :to="article._path">
+          <w-articles-list :cover="article.img" :title="article.title" :description="article.description" />
+        </NuxtLink>
+      </div>
+    </ContentList>
+  </a-col>
 </template>
 
-<script setup lang="ts">
+<script setup>
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

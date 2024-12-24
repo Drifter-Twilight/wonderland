@@ -1,29 +1,23 @@
 <template>
-  <div 
-    ref="swiperRef"
-    @wheel="wheelHander"
-    class="h-full overflow-auto scroll-smooth" style="scrollbar-width: none;">
-    <w-home-logo :show />
-    
-    <w-home-timeline />
+  <a-row justify="center" align="center" class="h-full">
+    <a-col :span="24" class="h-full">
+      <div ref="swiperRef" @wheel.passive="wheelHander" class="h-full overflow-auto scroll-smooth"
+        style="scrollbar-width: none;">
+        <w-home-logo :show />
 
-    <div class="flex-center fixed flex-col right-0 top-0 w-12 h-full space-y-5">
-      <div 
-        v-for="item in 2" :key="item"
-        @click="clickHander"
-        class="w-3 h-3 rounded-full border-[1.5px] border-[#D69340] cursor-pointer"
-        :class="{'active-bg': item == currentIndex}"></div>
-    </div>
-  </div>
+        <w-home-timeline />
+
+        <div class="flex-center fixed flex-col right-0 top-0 w-12 h-full space-y-5">
+          <div v-for="item in 2" :key="item" @click="clickHander"
+            class="w-3 h-3 rounded-full border-[1.5px] border-[#D69340] cursor-pointer"
+            :class="{ 'active-bg': item == currentIndex }"></div>
+        </div>
+      </div>
+    </a-col>
+  </a-row>
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  pageTransition: {
-    name: 'home'
-  }
-})
-
 const swiper = useTemplateRef('swiperRef')
 
 function hander(condition1: boolean, condition2?: boolean) {
