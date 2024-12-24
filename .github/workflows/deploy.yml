@@ -41,7 +41,7 @@ jobs:
         run: npm install # 或 yarn install，根据你的偏好选择
 
       - name: Generate Static Site
-        run: npm generate # 或者其他生成静态站点的命令，具体取决于你的 Nuxt.js 配置 # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+        run: npm run generate # 或者其他生成静态站点的命令，具体取决于你的 Nuxt.js 配置 # 或 pnpm docs:build / yarn docs:build / bun run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
