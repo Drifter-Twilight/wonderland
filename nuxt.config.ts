@@ -22,5 +22,11 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-light'
     }
+  },
+  devServer: {
+    url: "http://localhost:5000"
+  },
+  app: {
+    baseURL: process.env.NODE_ENV === 'production' ? '/wonderland/' : '/'
   }
 })
