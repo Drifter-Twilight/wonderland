@@ -1,7 +1,7 @@
 ---
 title: "HTML详解 -- 交互内容"
 description: "高亮（Highlight）是一种改变文本外观以突出显示特定内容的技术，有助于提高文本的可读性和信息传达效果。通常用于强调或突出显示文本中的范围内容，帮助读者快速识别重要内容。高亮通常通过改变文本的颜色、背景色或字体样式（如加粗或斜体）来实现。比如在复制文本内容时，选择的文本默认会出现蓝色背景跟字体变白，这就是一种高亮效果。"
-img: "/images/jpg-png-webp/articles/cover.webp"
+img: "cover"
 date: "2023-9-26"
 update: []
 tags: ["HTML", "JavaScript"]

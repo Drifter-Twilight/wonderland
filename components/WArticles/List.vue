@@ -1,7 +1,7 @@
 <template>
   <li class="item-container box-border h-[35vw] transition-[background-color] duration-300 sm:h-[25vw] lg:h-[19vw] p-3 2xl:p-5 hover:bg-white">
     <nuxt-link :to="target" class="flex-center w-full h-full">
-      <img :src="`/public/${cover}`" alt="cover" class="max-w-[40vw] lg:max-w-[35vw] h-full rounded-lg">
+      <img :src="`/wonderland/images/jpg-png-webp/articles/${cover}.webp`" alt="cover" class="max-w-[40vw] lg:max-w-[35vw] h-full rounded-lg">
 
       <div class="relative box-border py-3 flex-1 h-full">
         <p class="articles-title transition-all duration-300 box-border absolute -left-[20%] top-1/2 -translate-y-1/2 w-[95%] pb-[0.3rem] text-wrap break-all whitespace-pre-wrap line-clamp-2 hyphens-auto 2xl:leading-[60px] text-xl font-bold text-[#D69340] sm:-left-[15%] sm:w-5/6 sm:text-3xl 2xl:text-5xl">{{ title }}</p>
