@@ -1,6 +1,6 @@
 <template>
-  <li class="item-container flex-center box-border h-[35vw] transition-[background-color] duration-300 sm:h-[25vw] lg:h-[19vw] p-3 2xl:p-5 hover:bg-white">
-    <nuxt-link :to="target" class="block w-full h-full">
+  <li class="item-container box-border h-[35vw] transition-[background-color] duration-300 sm:h-[25vw] lg:h-[19vw] p-3 2xl:p-5 hover:bg-white">
+    <nuxt-link :to="target" class="flex-center w-full h-full">
       <img :src="cover" alt="cover" class="max-w-[40vw] lg:max-w-[35vw] h-full rounded-lg">
 
       <div class="relative box-border py-3 flex-1 h-full">
@@ -39,7 +39,7 @@ defineProps({
 @media screen and (min-width: 576px) {
   .item-container:hover .articles-title {
     top: 33%;
-    left: 0%;
+    left: 1%;
     transform: translateY(-50%) scale(0.95);
   }
 }
