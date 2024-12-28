@@ -16,7 +16,6 @@
 
   <a-col :xs="24" :sm="24" :lg="5" v-if="isLg" class="h-full">
     <!-- 目录 -->
-
     <w-detail-catalogue :links="data?.body?.toc?.links" />
   </a-col>
 </template>

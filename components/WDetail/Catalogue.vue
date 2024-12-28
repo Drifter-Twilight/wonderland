@@ -52,7 +52,6 @@ function getTocTextsWithIndent(tocLinks: TocLink[] | undefined) {
 }
 
 const linkArr = reactive(getTocTextsWithIndent(props.links))
-console.log(linkArr)
 </script>
 
 <style scoped>

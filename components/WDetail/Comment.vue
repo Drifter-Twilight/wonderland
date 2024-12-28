@@ -6,7 +6,7 @@
     </div>
 
     <div class="flex justify-end">
-      <a-button status="success">登录github以进行评论</a-button>
+      <a-button status="success" @click.prevent="loginGithub">登录github以进行评论</a-button>
     </div>
   </div>
 
@@ -22,7 +22,14 @@
 </template>
 
 <script setup lang="ts">
+const { data, signIn } = useAuth()
 
+
+function loginGithub() {
+// async function loginGithub() {
+  // await signIn('github')
+  console.log(data)
+}
 </script>
 
 <style scoped>
