@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     isEnabled: true,
     disableServerSideAuth: false,
     originEnvKey: process.env.NUXT_AUTH_ORIGIN,
-    baseURL: 'http://localhost:3000/api/auth',
+    baseURL: 'https://drifter-twilight.github.io/wonderland/api/auth',
     provider: { 
       type: 'authjs',
       trustHost: false,
