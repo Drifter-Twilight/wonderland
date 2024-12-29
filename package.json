@@ -10,19 +10,18 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@giscus/vue": "^3.0.0",
     "@nuxt/content": "^2.13.4",
     "@vueuse/core": "^12.0.0",
     "@vueuse/nuxt": "^12.0.0",
     "animate.css": "^4.1.1",
     "leafer-ui": "^1.0.10",
-    "next-auth": "^4.21.1",
     "nuxt": "^3.14.1592",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2",
-    "@sidebase/nuxt-auth": "^0.10.0",
     "arco-design-nuxt-module": "^0.1.0"
   }
 }
