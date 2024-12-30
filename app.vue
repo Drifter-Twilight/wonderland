@@ -7,7 +7,6 @@
     <nuxt-page />
   </nuxt-layout>
 
-  <w-mouse />
   <!-- <w-background /> -->
 </template>
 

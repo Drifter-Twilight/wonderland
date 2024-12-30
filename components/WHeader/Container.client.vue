@@ -4,7 +4,7 @@
       <a-row v-if="isOpen" justify="space-between" align="center" class="h-full">
         <a-col :span="3" class="flex-center">
           <router-link to="/home">
-            <img src="/public/images/svg/logo.svg" alt="logo" style="width: 2em;">
+            <img src="/images/svg/logo.svg" alt="logo" style="width: 2em;">
           </router-link>
         </a-col>
 
@@ -13,12 +13,12 @@
 
       <a-row v-else justify="space-between" align="center" class="h-full">
         <a-col :span="3" class="flex-center">
-          <router-link to="/">
-            <h1 class="opacity">LOGO</h1>
+          <router-link to="/home">
+            <img src="/images/svg/logo.svg" alt="logo" style="width: 2em;">
           </router-link>
         </a-col>
 
-        <a-col :span="2" class="flex-center h-full">
+        <a-col :xs="3" :sm="2" class="flex-center h-full">
           <div class="flex justify-center w-[24px] h-[24px]" >
             <input type="checkbox" id="togglemenu-input" @change="toggleMenu" class="hidden">
             <label for="togglemenu-input" class="togglemenu-label relative">
@@ -28,10 +28,10 @@
             </label>
           </div>
 
-          <a-drawer :visible="showMenu" height="calc(100vh - 64px)" :header="false" :footer="false" placement="top"
-            unmountOnClose :mask="false" class="translate-y-[64px]">
-            <a-row>
-              <w-header-nav mode="vertical" />
+          <a-drawer :visible="showMenu" height="calc(100vh - 0)" :header="false" :footer="false" placement="top"
+            unmountOnClose :mask="false">
+            <a-row class="pt-[64px]">
+              <w-header-nav v-model:show-menu="showMenu" mode="vertical" />
             </a-row>
           </a-drawer>
         </a-col>
@@ -69,7 +69,7 @@ function toggleMenu() {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #000;
+    background-color: #e1e1e1;
     transition: transform 0.2s ease-out
   }
 

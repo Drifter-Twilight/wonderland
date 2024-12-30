@@ -1,9 +1,3 @@
-:root, 
-a:hover,input[type="button"]:hover, button:hover
-{
-  cursor: none;
-}
-
 html, 
 body, 
 #__nuxt {

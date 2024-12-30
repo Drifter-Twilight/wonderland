@@ -4,7 +4,7 @@
       v-show="show"
       enter-active-class="animate__animated animate__zoomIn"
       leave-active-class="animate__animated animate__zoomOut">
-      <img src="/public/images/svg/logo.svg" alt="logo" class="logo-shadow w-[20vw]">
+      <img src="/public/images/svg/logo.svg" alt="logo" class="logo-shadow w-[35vw] lg:w-[20vw]">
     </Transition>
   </div>
 </template>

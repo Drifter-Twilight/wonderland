@@ -17,7 +17,7 @@ watch([mouse.x, mouse.y], () => {
 
   timeout = setTimeout(() => {
     isMove.value = false
-  }, 1000)
+  }, 3000)
 })
 
 onUnmounted(() => {

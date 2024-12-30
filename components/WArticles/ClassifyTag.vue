@@ -1,7 +1,7 @@
 <template>
   <a-tag 
     checkabl color="purple" 
-    @click="goTag"
+    @pointerdown="goTag"
     class="m-2"># {{ content }}</a-tag>
 </template>
 

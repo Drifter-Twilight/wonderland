@@ -3,7 +3,7 @@
     <w-articles-tab-bar />
   </a-col>
 
-  <a-col :xs="24" :sm="24" :lg="19" class="overflow-auto scroll-none h-full">
+  <a-col :xs="24" :sm="24" :lg="19" class="overflow-auto scroll-none h-full pt-2 lg:pt-0">
     <ContentList path="/articles" #="{ list }">
       <ul v-for="article in list" :key="article._path">
         <w-articles-list :target="article._path" :cover="article.img" :title="article.title" :description="article.description" />

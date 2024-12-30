@@ -6,7 +6,7 @@
 
   <a-col :xs="24" :sm="24" :lg="13" :xxl="10" class="h-full mx-4 mb-8">
     <!-- 文章详情 --> 
-    <div class="box-border w-full h-max p-6 pt-[64px] lg:pt-6 lg:rounded-xl bg-white text-black">
+    <div class="box-border w-full h-max p-6 pt-[64px] lg:pt-6 mt-[-64px] lg:mt-0 lg:rounded-xl bg-white text-black">
       <w-detail-info :title="data?.title" :date="data?.date" :update="data?.update" :tags="data?.tags" />
       <a-divider class="bg-[#D69340]" />
       <ContentDoc class="content-container mb-10" />

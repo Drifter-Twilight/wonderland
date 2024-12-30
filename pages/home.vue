@@ -8,7 +8,7 @@
         <w-home-timeline /> 
 
         <div class="flex-center fixed flex-col right-0 top-0 w-12 h-full space-y-5">
-          <div v-for="item in 2" :key="item" @click="clickHander"
+          <div v-for="item in 2" :key="item" @pointerdown="clickHander"
             class="w-3 h-3 rounded-full border-[1.5px] border-[#D69340] cursor-pointer"
             :class="{ 'active-bg': item == currentIndex }"></div>
         </div>

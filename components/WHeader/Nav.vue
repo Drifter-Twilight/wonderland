@@ -1,6 +1,6 @@
 <template>
   <a-col 
-    :xs="24" :lg="{ span: 7, offset: 11 }" :xxl="{ span: 5, offset: 14 }"
+    :xs="24" :lg="{ span: 8, offset: 11 }" :xl="{ span: 7, offset: 11 }" :xxl="{ span: 5, offset: 14 }"
     class="text-lg 2xl:text-xl font-semibold">
     <ul 
       class="w-full h-full"
@@ -8,8 +8,9 @@
       <li 
         v-for="item in headList"
         :key="item.to"
+        @pointerdown="emits('update:showMenu', false)"
         class="flex-center h-[64px]">
-        <nuxt-link :to="item.to" active-class="active-link">{{ item.content }}<small class="text-xs">/{{ item.en }}</small></nuxt-link>
+        <nuxt-link :to="item.to" active-class="active-link" class="block h-[64px]">{{ item.content }}<small class="inline-block origin-left scale-75">/{{ item.en }}</small></nuxt-link>
       </li>
     </ul>
   </a-col>
@@ -29,6 +30,9 @@
 </template>
 
 <script setup>
+defineModel('showMenu')
+const emits = defineEmits('update:showMenu')
+
 const props = defineProps({
   mode: {
     type: String,
@@ -60,7 +64,7 @@ const headList = reactive([
 
 <style scoped>
 .active-link {
-  background-image: linear-gradient(to right, #000 0 100%);
+  background-image: linear-gradient(to right, #fff 0 90%, transparent 90.1%);
   background-size: 100% 10%;
   background-position: 0 100%;
   background-repeat: no-repeat;

@@ -1,19 +1,45 @@
 <template>
   <nuxt-layout name="intro">
-    <div class="relative w-full h-full">
-      <p class="wonderland" data-word="WONDERLAND">WONDERLAND</p>
-      <p class="source" data-before="PWOER BY " data-after="WITT">PWOER BY <span>WITT</span></p>
-      <p class="skip" @click="enterHome">Skip</p>
+    <template v-if="showWarn">
+      <w-transition-fade> 
+        <div class="w-[90vw] lg:w-[800px] h-max space-y-4">
+          <p class="text-2xl">⚠️ 警告：进站前详阅</p>
+          <a-divider />
+          <p class="text-md leading-6">
+            有极少数的人在观看一些视觉特效时可能会突然癫痫发作，这些特效包括闪光、动画或图形。在游览本站的介绍页/长按动态背景等具备动画功能时，这些人可能会出现癫痫症状。甚至连不具有癫痫史的人，也可能在进入本站时，出现类似癫痫症状。如果您或您的家人有癫痫史，请在进入本站之前先与医生咨询。如果您在游览本站时出现以下症状，包括眼睛疼痛、视觉异常、偏头痛、痉挛或意识障碍（诸如昏迷）等，可以点击<b>「Skip」</b>跳过动画/切勿长按背景/立即退出本站。
+          </p>
 
-      <img src="/public/images/svg/decoration.svg" alt="decoration" class="decoration">
-      <img src="/public/images/svg/welcome.svg" alt="welcome" @animationend="enterHome" class="welcome">
-    </div>
+          <p class="text-md leading-6">
+            除上述症状外，当您感到头痛、头晕眼花、恶心想吐或类似晕车症状时，以及当身体的某些部位感到不舒服或疼痛时，请立即退出本站。若在退出本站后，症状仍没有减退，请立即寻求医生的诊疗。</p>
+        </div>
+      </w-transition-fade>
+    </template>
+
+    <template v-else>
+      <div class="intro-container relative w-full h-full">
+        <p class="wonderland" data-word="WONDERLAND">WONDERLAND</p>
+        <p class="source" data-after="WITT">PWOER BY <span>WITT</span></p>
+        <p class="skip" @pointerdown="navigateTo('/home')">Skip</p>
+
+        <img src="/public/images/svg/decoration.svg" alt="decoration" class="decoration">
+        <img src="/public/images/svg/welcome.svg" alt="welcome" @animationend="enterHome" class="welcome">
+      </div>
+    </template>
   </nuxt-layout>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
   layout: false
+})
+
+const showWarn = ref(true)
+
+let WarnTimeout: NodeJS.Timeout
+onMounted(() => {
+  WarnTimeout = setTimeout(() => {
+    showWarn.value = false
+  }, 5000)
 })
 
 let timeout: NodeJS.Timeout
@@ -24,6 +50,7 @@ function enterHome() {
 }
 
 onUnmounted(() => {
+  clearTimeout(WarnTimeout)
   clearTimeout(timeout)
 })
 </script>
@@ -123,9 +150,8 @@ onUnmounted(() => {
   }
 }
 
-p {
+.intro-container p {
   position: absolute;
-  color: #fff;
   font-weight: 500;
   margin: 0;
 }
@@ -133,7 +159,7 @@ p {
 .wonderland {
   left: 0;
   top: 30%;
-  font-size: calc(5rem + 5vw);
+  font-size: clamp(3rem, 12vw, 14rem);
   z-index: 3;
   color: transparent;
   animation: text-skew 1.2s ease-in 1.5s infinite;
@@ -178,32 +204,22 @@ p {
 .source {
   right: 0;
   top: 55%;
-  font-size: 120px;
+  font-size: clamp(3rem, 8vw, 12rem);
   transform: scale(1000);
   color: transparent;
   -webkit-text-stroke: 3px #fff;
   animation: source-scale 0.5s ease-in 3s 1 forwards;
 
-  &::before,
   &::after {
     position: absolute;
-
-    color: transparent;
-    -webkit-text-stroke: 3px #fff;
-    animation: source-diffuse 1.5s linear 3.5s infinite;
-  }
-
-  &::before {
-    left: 0;
-    top: 0;
-    content: attr(data-before);
-  }
-
-  &::after {
+    z-index: 0;
     content: attr(data-after);
     right: 0;
     top: 0;
+    font-weight: 400;
     -webkit-text-stroke: 3px #D69340;
+    color: transparent;
+    animation: source-diffuse 1.5s linear 3.5s infinite;
   }
 
   span {
@@ -212,11 +228,21 @@ p {
 }
 
 .skip {
-  right: 60px;
-  bottom: 50px;
-  font-size: 30px;
+  right: clamp(2rem, 4vw, 5rem);
+  bottom: clamp(2rem, 4vw, 5rem);
+  font-size: clamp(1.5rem, 5vw, 2.3rem);
   font-weight: normal;
   cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+  .wonderland {
+    top: 40%;
+  }
+
+  .source {
+    top: 55%;
+  }
 }
 
 @keyframes decoration-fade {
@@ -241,16 +267,16 @@ img {
 }
 
 .decoration {
-  right: -50px;
-  top: -50px;
-  width: 300px;
+  right: 0;
+  top: 0;
+  width: clamp(10rem, 25vw, 23rem);
   animation: decoration-fade 1s ease-out 4s forwards;
 }
 
 .welcome {
   left: -50px;
   bottom: -50px;
-  width: 600px;
+  width: clamp(15rem, 45vw, 55rem);
   animation: welcome-fade 1s ease-out 4s forwards;
 }
 </style>

@@ -110,10 +110,36 @@
 }
 
 .content-container pre > code {
+  --sb-track-color: #141414;
+  --sb-thumb-color: #2f2f2f;
+  --sb-size: 8px;
+
   overflow-x: auto;
   background-color: transparent;
-  padding: 15px 12px;
+  padding: 5px 12px;
   padding-left: 0;
+  line-height: 1.75;
+
+  &::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 20px;
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
 }
 
 .content-container code:not(pre > code) {
