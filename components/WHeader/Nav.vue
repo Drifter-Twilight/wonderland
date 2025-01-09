@@ -8,9 +8,8 @@
       <li 
         v-for="item in headList"
         :key="item.to"
-        @pointerdown="emits('update:showMenu', false)"
-        class="flex-center h-[64px]">
-        <nuxt-link :to="item.to" active-class="active-link" class="block h-[64px]">{{ item.content }}<small class="inline-block origin-left scale-75">/{{ item.en }}</small></nuxt-link>
+        @pointerdown="emits('update:showMenu', false)">
+        <nuxt-link :to="item.to" active-class="active-link" class="flex-center h-[64px]">{{ item.content }}<small class="inline-block origin-left scale-75">/{{ item.en }}</small></nuxt-link>
       </li>
     </ul>
   </a-col>
@@ -65,8 +64,8 @@ const headList = reactive([
 <style scoped>
 .active-link {
   background-image: linear-gradient(to right, #fff 0 90%, transparent 90.1%);
-  background-size: 100% 10%;
-  background-position: 0 100%;
+  background-size: 100% 5%;
+  background-position: 0 90%;
   background-repeat: no-repeat;
 }
 </style>

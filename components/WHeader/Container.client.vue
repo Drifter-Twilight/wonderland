@@ -50,15 +50,6 @@ function toggleMenu() {
 </script>
 
 <style scoped>
-@font-face {
-  font-family: "lment";
-  src: url("/assets/fonts/lment/Lment-v02.otf");
-}
-
-.layout-header {
-  font-family: "lment", "微軟正黑體", monospace;
-}
-
 .togglemenu-label {
   width: 100%;
   height: 100%;

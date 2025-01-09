@@ -1,9 +1,9 @@
 <template>
   <nuxt-layout name="intro">
     <template v-if="showWarn">
-      <w-transition-fade> 
+      <w-transition-fade>
         <div class="w-[90vw] lg:w-[800px] h-max space-y-4">
-          <p class="text-2xl">⚠️ 警告：进站前详阅</p>
+          <p class="text-2xl">警告：进站前详阅</p>
           <a-divider />
           <p class="text-md leading-6">
             有极少数的人在观看一些视觉特效时可能会突然癫痫发作，这些特效包括闪光、动画或图形。在游览本站的介绍页/长按动态背景等具备动画功能时，这些人可能会出现癫痫症状。甚至连不具有癫痫史的人，也可能在进入本站时，出现类似癫痫症状。如果您或您的家人有癫痫史，请在进入本站之前先与医生咨询。如果您在游览本站时出现以下症状，包括眼睛疼痛、视觉异常、偏头痛、痉挛或意识障碍（诸如昏迷）等，可以点击<b>「Skip」</b>跳过动画/切勿长按背景/立即退出本站。
@@ -16,13 +16,10 @@
     </template>
 
     <template v-else>
-      <div class="intro-container relative w-full h-full">
+      <div class="intro-container flex justify-center flex-col overflow-hidden relative w-full h-full">
         <p class="wonderland" data-word="WONDERLAND">WONDERLAND</p>
-        <p class="source" data-after="WITT">PWOER BY <span>WITT</span></p>
+        <p class="source" @animationend="enterHome" data-after="WITT">PWOER BY <span>WITT</span></p>
         <p class="skip" @pointerdown="navigateTo('/home')">Skip</p>
-
-        <img src="/public/images/svg/decoration.svg" alt="decoration" class="decoration">
-        <img src="/public/images/svg/welcome.svg" alt="welcome" @animationend="enterHome" class="welcome">
       </div>
     </template>
   </nuxt-layout>
@@ -46,7 +43,7 @@ let timeout: NodeJS.Timeout
 function enterHome() {
   timeout = setTimeout(() => {
     navigateTo('/home')
-  }, 500)
+  }, 2300)
 }
 
 onUnmounted(() => {
@@ -150,42 +147,82 @@ onUnmounted(() => {
   }
 }
 
-.intro-container p {
+.intro-container::before,
+.intro-container::after {
   position: absolute;
+  content: '';
+  opacity: 0;
+}
+
+.intro-container::before {
+  display: block;
+  right: -50px;
+  top: -50px;
+  background: url('/images/svg/decoration.svg') no-repeat;
+  background-size: 100% 100%;
+  width: clamp(15rem, 15vw, 50rem);
+  aspect-ratio: 1 / 1;
+  animation: decoration-fade 1s ease-out 4s forwards;
+}
+
+.intro-container::after {
+  left: -50px;
+  bottom: -50px;
+  width: clamp(15rem, 45vw, 50rem);
+  height: 20vw;
+  max-height: 300px;
+  background: url('/images/svg/welcome.svg') no-repeat;
+  background-size: 100% 100%;
+  animation: welcome-fade 1s ease-out 4s forwards;
+}
+
+@media screen and (max-width: 576px) {
+  .intro-container::before {
+    width: clamp(12rem, 20vw, 30rem);
+  }
+
+  .intro-container::after {
+    width: clamp(15rem, 60vw, 50rem);
+    height: 30vw;
+  }
+}
+
+.intro-container p {
   font-weight: 500;
-  margin: 0;
 }
 
 .wonderland {
-  left: 0;
-  top: 30%;
-  font-size: clamp(3rem, 12vw, 14rem);
+  position: relative;
+  margin-bottom: -8%;
+  font-size: clamp(4rem, 11vw, 14rem);
   z-index: 3;
   color: transparent;
   animation: text-skew 1.2s ease-in 1.5s infinite;
+}
 
-  &::before {
-    position: absolute;
-    content: attr(data-word);
-    top: 0;
-    left: 5px;
-    height: 0px;
-    color: #ff00ff;
-    z-index: -1;
-    transform-origin: left bottom;
-    animation: magenta-enter 0.8s linear 3, magenta-flash 0.5s ease-in 2.4s infinite;
-    filter: contrast(200%);
-  }
+.wonderland::before,
+.wonderland::after {
+  position: absolute;
+  content: attr(data-word);
+}
 
-  &::after {
-    overflow: hidden;
-    position: absolute;
-    content: attr(data-word);
-    top: 0;
-    left: -5px;
-    z-index: -1;
-    animation: cyan-height 1.5s ease-out 2.4s infinite;
-  }
+.wonderland::before {
+  top: 0;
+  left: 5px;
+  height: 0px;
+  color: #ff00ff;
+  z-index: -1;
+  transform-origin: left bottom;
+  animation: magenta-enter 0.8s linear 3, magenta-flash 0.5s ease-in 2.4s infinite;
+  filter: contrast(200%);
+}
+
+.wonderland::after {
+  overflow: hidden;
+  top: 0;
+  left: -5px;
+  z-index: -1;
+  animation: cyan-height 1.5s ease-out 2.4s infinite;
 }
 
 @keyframes source-scale {
@@ -202,47 +239,39 @@ onUnmounted(() => {
 }
 
 .source {
-  right: 0;
-  top: 55%;
+  position: relative;
+  justify-self: flex-end;
   font-size: clamp(3rem, 8vw, 12rem);
   transform: scale(1000);
   color: transparent;
+  text-align: end;
   -webkit-text-stroke: 3px #fff;
   animation: source-scale 0.5s ease-in 3s 1 forwards;
+}
 
-  &::after {
-    position: absolute;
-    z-index: 0;
-    content: attr(data-after);
-    right: 0;
-    top: 0;
-    font-weight: 400;
-    -webkit-text-stroke: 3px #D69340;
-    color: transparent;
-    animation: source-diffuse 1.5s linear 3.5s infinite;
-  }
+.source::after {
+  position: absolute;
+  z-index: 0;
+  content: attr(data-after);
+  right: 0;
+  top: 0;
+  font-weight: 400;
+  -webkit-text-stroke: 3px #D69340;
+  color: transparent;
+  animation: source-diffuse 1.5s linear 3.5s infinite;
+}
 
-  span {
-    -webkit-text-stroke: 3px #D69340;
-  }
+.source span {
+  -webkit-text-stroke: 3px #D69340;
 }
 
 .skip {
+  position: absolute;
   right: clamp(2rem, 4vw, 5rem);
   bottom: clamp(2rem, 4vw, 5rem);
-  font-size: clamp(1.5rem, 5vw, 2.3rem);
+  font-size: clamp(1.3rem, 5vw, 2.3rem);
   font-weight: normal;
   cursor: pointer;
-}
-
-@media screen and (max-width: 576px) {
-  .wonderland {
-    top: 40%;
-  }
-
-  .source {
-    top: 55%;
-  }
 }
 
 @keyframes decoration-fade {
@@ -259,24 +288,5 @@ onUnmounted(() => {
     bottom: 0;
     opacity: 1;
   }
-}
-
-img {
-  position: absolute;
-  opacity: 0;
-}
-
-.decoration {
-  right: 0;
-  top: 0;
-  width: clamp(10rem, 25vw, 23rem);
-  animation: decoration-fade 1s ease-out 4s forwards;
-}
-
-.welcome {
-  left: -50px;
-  bottom: -50px;
-  width: clamp(15rem, 45vw, 55rem);
-  animation: welcome-fade 1s ease-out 4s forwards;
 }
 </style>

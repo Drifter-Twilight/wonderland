@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-center h-full">
+  <div class="flex-center h-full snap-start">
     <a-timeline mode="alternate" reverse pending labelPosition="same">
       <template #dot>
         <p class="m-0 text-3xl font-bold bg-clip-text bg-gradient-to-tr from-gray-400 to-slate-200">2023</p>
