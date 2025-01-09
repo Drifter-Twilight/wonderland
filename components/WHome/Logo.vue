@@ -1,22 +1,11 @@
 <template>
-  <div class="flex-center relative h-full snap-start">
-    <Transition 
-      v-show="show"
-      enter-active-class="animate__animated animate__zoomIn"
-      leave-active-class="animate__animated animate__zoomOut">
-      <img src="/public/images/svg/logo.svg" alt="logo" class="logo-shadow w-[35vw] lg:w-[20vw]">
-    </Transition>
-
-    <w-transition-fade>
-      <icon-double-down size="50" class="absolute bottom-8 left-1/2 -translate-x-1/2 " />
-    </w-transition-fade>
+  <div ref="scrollRef" class="flex-center relative h-full snap-start">
+    <img src="/public/images/svg/logo.svg" alt="logo" class="logo-shadow w-[35vw] lg:w-[20vw]">
+    <icon-double-down size="50" class="absolute bottom-8 left-1/2 -translate-x-1/2 " />
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
-  show: Boolean
-})
 </script>
 
 <style scoped>
