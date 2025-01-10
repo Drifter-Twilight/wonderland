@@ -1,6 +1,6 @@
 <template>
   <a-col 
-    :xs="24" :lg="{ span: 8, offset: 11 }" :xl="{ span: 7, offset: 11 }" :xxl="{ span: 5, offset: 14 }"
+    :xs="24" :lg="{ span: 6, offset: 13 }" :xl="{ span: 5, offset: 14 }" :xxl="{ span: 3, offset: 16 }"
     class="text-lg 2xl:text-xl font-semibold">
     <ul 
       class="w-full h-full"
@@ -8,8 +8,9 @@
       <li 
         v-for="item in headList"
         :key="item.to"
-        @pointerdown="emits('update:showMenu', false)">
-        <nuxt-link :to="item.to" active-class="active-link" class="flex-center h-[64px]">{{ item.content }}<small class="inline-block origin-left scale-75">/{{ item.en }}</small></nuxt-link>
+        @pointerdown="toTarget(item.to)"
+        class="flex-center h-[64px]">
+        {{ item.content }}<small class="inline-block origin-left scale-75">/{{ item.en }}</small>
       </li>
     </ul>
   </a-col>
@@ -28,16 +29,16 @@
   </a-col>
 </template>
 
-<script setup>
-defineModel('showMenu')
-const emits = defineEmits('update:showMenu')
+<script setup lang="ts">
+defineModel('showMenu', { type: Boolean })
+const emits = defineEmits(['update:showMenu'])
 
 const props = defineProps({
   mode: {
     type: String,
     default: 'horizontal',
     validator(value) {
-      return ['horizontal', 'vertical'].includes(value)
+      return ['horizontal', 'vertical'].includes((value as string))
     }
   }
 })
@@ -49,16 +50,20 @@ const headList = reactive([
     en: 'articles'
   },
   {
-    to: '/notes',
-    content: '笔记',
-    en: 'notes'
-  },
-  {
     to: '/about',
     content: '关于',
     en: 'about'
   }
 ])
+
+function toTarget(to: string) {
+  if (props.mode == 'vertical') {
+    navigateTo(to)
+    emits('update:showMenu', false)
+  } else {
+    navigateTo(to)
+  }
+}
 </script>
 
 <style scoped>
