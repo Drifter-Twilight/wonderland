@@ -1,5 +1,8 @@
 <template>
-  <a-col :xs="20" :sm="20" :lg="18" :xxl="13" class="">
+  <a-col 
+    :xs="20" :sm="20" :lg="18" :xxl="13" 
+    class="dowhat-decoration animate__animated animate__repeat-1 relative mb-20 opacity-0 lg:mb-10"
+    :class="{ 'animate__fadeInUp': y > 500 }">
     <p class="mb-16 text-4xl text-center font-bold text-[#D69340]">What I do?</p>
 
     <div class="flex flex-col lg:flex-row box-border h-max lg:space-x-5 space-y-8 lg:space-y-0">
@@ -26,7 +29,20 @@
 </template>
 
 <script setup lang="ts">
-
+defineProps<{
+  y: number
+}>()
 </script>
 
-<style scoped></style>
+<style scoped>
+.dowhat-decoration::after {
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  aspect-ratio: 4 / 1;
+  background: url('/images/svg/dowhat-deco.svg');
+  background-size: 100% 100%;
+  transform: translateY(-50%);
+}
+</style>

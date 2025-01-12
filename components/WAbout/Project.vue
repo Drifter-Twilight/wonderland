@@ -1,5 +1,8 @@
 <template>
-  <a-col :span="24" class="relative box-border h-max">
+  <a-col 
+    :span="24" 
+    class="animate__animated animate__repeat-1 relative box-border h-max opacity-0"
+    :class="{ 'animate__fadeInLeft': y > 950 }">
     <p class="mb-16 text-4xl text-center font-bold text-[#D69340]">关于本项目</p>
 
     <p class="z-[-1] absolute left-0 top-[38%] lg:top-1/2 text-6xl lg:text-9xl font-bold">Wonderland</p>
@@ -31,7 +34,9 @@
 </template>
 
 <script setup lang="ts">
-
+defineProps<{
+  y: number
+}>()
 </script>
 
 <style scoped>

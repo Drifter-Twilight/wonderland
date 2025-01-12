@@ -1,22 +1,26 @@
 <template>
   <a-row 
     justify="center" align="center"
-    class="about-scrollbar flex-col scroll-smooth box-border overflow-y-auto pt-[80px] h-full space-y-28">
-    <a-col 
-      :xs="24" :sm="22" :lg="14" :xxl="12"
-      class="box-border flex justify-around items-center p-4">
+    @scroll="scrollHandler"
+    class="about-scrollbar flex-col scroll-smooth box-border overflow-x-hidden overflow-y-auto pt-[80px] h-full">
+    <a-col :span="24"
+      class="box-border flex justify-evenly items-center mb-24 py-4 px-4">
       <p class="lg:text-lg text-[#D69340] font-bold">关于我</p>
       <p class="lg:text-lg text-[#D69340] font-bold">What I do?</p>
       <p class="lg:text-lg text-[#D69340] font-bold">关于本项目</p>
     </a-col>
 
     <w-about-me />
-    <w-about-do-what />
-    <w-about-project />
+    <w-about-do-what :y="scrollY" />
+    <w-about-project :y="scrollY" />
   </a-row>
 </template>
 
 <script setup lang="ts">
+let scrollY = ref(0)
+function scrollHandler(e: any) {
+  scrollY.value = e.target.scrollTop
+}
 </script>
 
 <style scoped>

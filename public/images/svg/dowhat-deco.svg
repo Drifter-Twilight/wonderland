@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300.7083740234375" height="260.5">
+  <path id="decoPath" fill="none" stroke="rgba(214, 147, 64, 0.5)" stroke-width="3" d="M5 3.5C52.3279 1.5 124.88 245.5 238.49 245.5C352.1 245.5 389 118 389 118C389 118 403.945 83.4998 372.05 74.5C340.155 65.5002 352.1 100 352.1 100C352.1 100 392.52 259 460.26 259C528 259 698.983 176.5 772.74 176.5C846.497 176.5 1043.84 248.499 1295.5 212.5"></path>
+
+  <circle cx="5" cy="3.5" r="5" fill="rgba(214, 147, 64, 0.5)"></circle>
+
+  <circle cx="1295.5" cy="212.5" r="5" fill="rgba(214, 147, 64, 0.5)"></circle>
+ 
+  <circle cx="0" cy="0" r="5" fill="rgba(214, 147, 64, 0.5)">
+    <animateMotion dur="5s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#decoPath" />
+    </animateMotion>
+  </circle>
+
+  <circle cx="0" cy="0" r="5" fill="rgba(214, 147, 64, 0.5)">
+    <animateMotion dur="5s" repeatCount="indefinite" rotate="auto" begin="1s">
+      <mpath href="#decoPath" />
+    </animateMotion>
+  </circle>
+
+  <circle cx="0" cy="0" r="5" fill="rgba(214, 147, 64, 0.5)">
+    <animateMotion dur="5s" repeatCount="indefinite" rotate="auto" begin="2s">
+      <mpath href="#decoPath" />
+    </animateMotion>
+  </circle>
+</svg>
