@@ -1,13 +1,13 @@
 <template>
   <a-affix :offsetTop="65">
-    <div class="catalogue overflow-hidden box-border h-max max-h-[50vh] w-full p-3 rounded-lg bg-white text-black">
-      <p class="font-semibold text-lg border-b border-dotted text-[#D69340] border-[#D69340]">目录</p>
+    <div class="catalogue overflow-hidden box-border h-[50vh] 2xl:h-[40vh] w-full px-3 pt-3 rounded-lg bg-white text-black">
+      <p class="font-semibold text-lg border-b border-dotted text-[#D69340] border-[#D69340] mb-1">目录</p>
 
-      <ul class="relative box-border py-1 scroll-none overflow-auto">
+      <ul class="relative box-border h-[calc(100%-40px)] scroll-none overflow-y-auto ">
         <li 
           v-for="item in linkArr" :key="item.text"
           :style="{ 'text-indent': `${item.depth - 2}em` }"
-          class="box-border transition-all p-2"
+          class="box-border transition-all py-2"
           :class="{'active-anchor-link': route.hash == `#${item.id}`}">
           <a :href="`#${item.id}`" class="line-clamp-1 text-ellipsis text-md">{{ item.text }}</a>
         </li>
@@ -55,7 +55,7 @@ const linkArr = reactive(getTocTextsWithIndent(props.links))
 </script>
 
 <style scoped>
-.catalogue::after {
+/* .catalogue::after {
   position: absolute;
   content: '';
   left: 0;
@@ -65,9 +65,9 @@ const linkArr = reactive(getTocTextsWithIndent(props.links))
   background-image: linear-gradient(to top, white 50%, transparent);
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-}
+} */
 
 .active-anchor-link {
-  background-color: rgba(214, 146, 64, 0.5);
+  background-color: rgba(214, 146, 64, 0.3);
 }
 </style>

@@ -9,13 +9,15 @@
 </template>
 
 <script setup lang="ts">
+import { useEnv } from '~/composables/useEnv';
+
 defineProps({
   img: String,
   title: String,
   name: String
 })
 
-let curEnv = ref(process.env.NODE_ENV)
+let curEnv = useEnv()
 </script>
 
 <style scoped>

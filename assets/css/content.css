@@ -5,7 +5,7 @@
 
 .content-container h2 {
   font-size: 1.5em;
-  margin: .75em 0;
+  margin: 1.75em 0;
 }
 
 .content-container h2::before {
@@ -14,7 +14,7 @@
 
 .content-container h3 {
   font-size: 1.17em;
-  margin: .75em 0;
+  margin: 1.75em 0;
 }
 
 .content-container h3::before {
@@ -42,6 +42,7 @@
 .content-container p {
   margin: 22px 0;
   line-height: 1.75;
+  font-size: medium;
 }
 
 .content-container code {
@@ -66,6 +67,7 @@
 .content-container li {
   list-style: inherit;
   line-height: 1.75;
+  margin-bottom: .5rem;
 }
 
 .content-container strong {
@@ -104,35 +106,37 @@
 }
 
 .content-container pre {
+  overflow: hidden;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
   background-color: #282c34;
   border-radius: .5rem;
   box-shadow: 0 0 3px #141414;
 }
 
 .content-container pre > code {
-  --sb-track-color: #141414;
-  --sb-thumb-color: #2f2f2f;
-  --sb-size: 8px;
+  --sb-track-color: #282c34;
+  --sb-thumb-color: #fff;
+  --sb-size: 5px;
 
+  display: block;
   overflow-x: auto;
   background-color: transparent;
-  padding: 5px 12px;
-  padding-left: 0;
+  padding: .75rem;
   line-height: 1.75;
+}
 
-  &::-webkit-scrollbar {
-    width: var(--sb-size);
-  }
+.content-container pre > code::-webkit-scrollbar {
+  width: var(--sb-size);
+  height: var(--sb-size);
+}
 
-  &::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: 20px;
-  }
+.content-container pre > code::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+}
 
-  &::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 20px;
-  }
+.content-container pre > code::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
 }
 
 @supports not selector(::-webkit-scrollbar) {
@@ -156,20 +160,22 @@
 }
 
 .content-container blockquote {
+  padding: .5rem;
   border-left: 3px solid #D69340;
-  background-color: rgba(214, 146, 64, 0.5);
+  background-color: rgba(214, 146, 64, 0.3);
 }
 
 .content-container blockquote::before {
   content: '“';
-  font-weight: bolder;
-  font-size: larger;
+  font-size: xx-large;
   color: #D69340;
 }
 
 .content-container table {
   border: 2px solid #D69340;
   border-collapse: collapse;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
 }
 
 .content-container table > thead {
@@ -182,10 +188,11 @@
   background-color: #D69340;
 }
 
-.content-container th, td {
+.content-container th, .content-container td {
   padding: 12px 7px;
 }
 
 .content-container table td {
   border: 1px solid #D69340;
+  line-height: 1.75;
 }

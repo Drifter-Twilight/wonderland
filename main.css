@@ -38,6 +38,47 @@ body {
   overflow-wrap: break-word;
 }
 
+.text-pre-wrap {
+  text-wrap: wrap;
+  word-break: break-all;
+  white-space: pre-wrap;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.leading-175 {
+  line-height: 1.75;
+}
+
 p {
   line-height: 1.75;
+}
+
+.scrollbar {
+  --sb-track-color: #000000;
+  --sb-thumb-color: #ffffff;
+  --sb-size: 5px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: var(--sb-size);
+  border: none;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 1px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 1px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
 }
