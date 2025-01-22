@@ -1,6 +1,6 @@
 <template>
   <a-col 
-    :xs="24" :lg="{ span: 6, offset: 13 }" :xl="{ span: 5, offset: 14 }" :xxl="{ span: 3, offset: 16 }"
+    :xs="24" :lg="{ span: 5, offset: 14 }" :xl="{ span: 4, offset: 15 }" :xxl="{ span: 3, offset: 16 }"
     class="text-lg 2xl:text-xl font-semibold">
     <ul 
       class="w-full h-full"
