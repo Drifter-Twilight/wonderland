@@ -12,8 +12,7 @@
     inputposition="top"
     theme="light"
     lang="zh-CN"
-    loading="lazy"
-    async />
+    loading="lazy" />
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,5 @@
 <template>
-  <a-row justify="center" align="start" class="scroll-none scroll-smooth box-border overflow-auto h-full pt-[64px]">
+  <a-row justify="center" align="start" class="scrollbar scroll-smooth box-border overflow-auto h-full pt-[64px]">
     <nuxt-page /> 
   </a-row>
 </template>

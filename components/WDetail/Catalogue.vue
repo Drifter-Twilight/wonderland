@@ -1,71 +1,60 @@
 <template>
-  <a-affix :offsetTop="65">
-    <div class="catalogue overflow-hidden box-border h-[50vh] 2xl:h-[40vh] w-full px-3 pt-3 rounded-lg bg-white text-black">
-      <p class="font-semibold text-lg border-b border-dotted text-[#D69340] border-[#D69340] mb-1">目录</p>
-
-      <ul class="relative box-border h-[calc(100%-40px)] scroll-none overflow-y-auto ">
-        <li 
-          v-for="item in linkArr" :key="item.text"
-          :style="{ 'text-indent': `${item.depth - 2}em` }"
-          class="box-border transition-all py-2"
-          :class="{'active-anchor-link': route.hash == `#${item.id}`}">
-          <a :href="`#${item.id}`" class="line-clamp-1 text-ellipsis text-md">{{ item.text }}</a>
-        </li>
-      </ul>
-    </div>
-  </a-affix>
+  <ul class="catalogue-scrollbar box-border max-h-[45vh] 2xl:max-h-[35vh] overflow-y-auto">
+    <template v-if="linkArr.length">
+      <div class="flex-center w-full h-[250px]">
+        <a-empty />
+      </div>
+    </template>
+    
+    <template>
+      <li 
+      v-for="item in linkArr" :key="item.text" 
+      :style="{ 'text-indent': `${item.depth - 2}em` }"
+      class="box-border transition-all py-2 pl-1 rounded" :class="{ 'active-anchor-link': hash == `#${item.id}` }">
+      <a :href="`#${item.id}`" class="line-clamp-1 text-ellipsis text-md">{{ item.text }}</a>
+    </li>
+    </template>
+  </ul>
 </template>
 
 <script setup lang="ts">
 import type { TocLink } from '@nuxt/content';
 
-interface Links {
-  id: string;
-  text: string;
-  depth: number;
-}
-
 const props = defineProps<{
-  links?: TocLink[]
+  links?: TocLink[],
+  hash: string
 }>()
-
-const route = useRoute()
-
-function getTocTextsWithIndent(tocLinks: TocLink[] | undefined) {
-  const tocTexts: Links[] = [];
-
-  function traverseLinks(links: TocLink[] | undefined) {
-    if(links) {
-      for (const link of links) {
-        tocTexts.push({id: link.id, text: link.text, depth: link.depth});
-
-       if (link.children) {
-          traverseLinks(link.children);
-        }
-      }
-    }
-  }
-
-  traverseLinks(tocLinks);
-
-  return tocTexts;
-}
 
 const linkArr = reactive(getTocTextsWithIndent(props.links))
 </script>
 
 <style scoped>
-/* .catalogue::after {
-  position: absolute;
-  content: '';
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 10%;
-  background-image: linear-gradient(to top, white 50%, transparent);
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-} */
+.catalogue-scrollbar {
+  --catalogue-sb-track-color: transparent;
+  --catalogue-sb-thumb-color: #d4d4d4;
+  --catalogue-sb-size: 3px;
+}
+
+.catalogue-scrollbar::-webkit-scrollbar {
+  width: var(--catalogue-sb-size)
+}
+
+.catalogue-scrollbar::-webkit-scrollbar-track {
+  background: var(--catalogue-sb-track-color);
+  border-radius: 50px;
+}
+
+.catalogue-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--catalogue-sb-thumb-color);
+  border-radius: 50px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .catalogue-scrollbar {
+    scrollbar-color: var(--catalogue-sb-thumb-color)
+                     var(--catalogue-sb-track-color);
+  }
+}
 
 .active-anchor-link {
   background-color: rgba(214, 146, 64, 0.3);

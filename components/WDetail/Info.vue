@@ -4,7 +4,7 @@
   <div class="flex justify-between items-center mb-3">
     <span class="text-sm text-gray-500"><icon-calendar class="text-lg" /> {{ date }}</span>
 
-    <span>{{ update && update.length > 0 ? update?.length : 0 }}次更新 <icon-refresh /></span>
+    <span>{{ update }}次更新 <icon-refresh /></span>
   </div>
 
   <div class="flex space-x-4 mb-3">
@@ -16,7 +16,7 @@
 defineProps<{
   title?: string
   date?: string
-  update?: string[]
+  update?: number
   tags?: string[]
 }>()
 </script>
