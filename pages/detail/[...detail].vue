@@ -1,16 +1,20 @@
 <template>
-  <a-col :xs="24" :sm="24" :lg="1" class="hidden lg:block h-full">
-    <!-- 后退按钮 -->
-    <w-detail-back />
+  <a-col 
+    v-if="data?.img"
+    :xs="24" :sm="24" :lg="22" :xxl="20" 
+    class="detail-cover flex-center z-10 overflow-hidden lg:max-h-[60vh]">
+    <w-detail-cover :cover="data?.img" />
   </a-col>
 
-  <a-col :xs="24" :sm="24" :lg="13" :xxl="11" class="overflow-hidden mx-4 mb-8">
-    <!-- 文章详情 -->
-    <div class="box-border w-full h-max p-6 pt-[64px] lg:pt-6 mt-[-64px] lg:mt-0 lg:rounded-xl bg-white text-black">
+  <a-col 
+    :xs="24" :sm="24" :lg="18" :xxl="16" 
+    class="z-0 flex space-x-8">
+
+    <div class="box-border overflow-hidden h-max px-8 pb-8 pt-[64px] bg-white lg:mt-0 text-black">
       <w-detail-info :title="data?.title" :date="data?.date" :update="data?.update" :tags="data?.tags" />
       <a-divider class="bg-[#D69340]" />
       <ContentRenderer :value="data!" class="content-container mb-10">
-        <template #empty>
+        <template #empty>w-
           <div class="flex-center w-full aspect-square">
             <a-empty />
           </div>
@@ -18,22 +22,16 @@
       </ContentRenderer>
       <w-detail-comment />
     </div>
-  </a-col>
-
-  <a-col :xs="24" :sm="24" :lg="5" :xxl="4" class="hidden lg:block overflow-hidden h-full">
-    <a-affix :offsetTop="65">
-      <div>
-        <!-- 目录 -->
-        <w-detail-column title="目录" class="mb-4">
-          <w-detail-catalogue :links="data?.body?.toc?.links" :hash="route.hash" />
-        </w-detail-column>
-
-        <!-- 其他推荐 -->
-        <w-detail-column title="其他推荐">
-          <w-detail-related :detail-params="(route.params.detail as string[]).slice(0, 2)" />
-        </w-detail-column>
-      </div>
-    </a-affix>
+      <!-- <w-detail-info :title="data?.title" :date="data?.date" :update="data?.update" :tags="data?.tags" />
+      <a-divider class="bg-[#D69340]" />
+      <ContentRenderer :value="data!" class="content-container mb-10">
+        <template #empty>w-
+          <div class="flex-center w-full aspect-square">
+            <a-empty />
+          </div>
+        </template>
+      </ContentRenderer>
+      <w-detail-comment /> -->
   </a-col>
 </template>
 
@@ -45,6 +43,12 @@ let { data } = await useAsyncData('articles-detail', () => queryContent(articles
 </script>
 
 <style>
+.detail-cover {
+  mask: linear-gradient(to right, transparent 5%, black, transparent 95%);
+  mask-size: 100% 100%;
+  mask-position: center;
+}
+
 .content-container {
   background-image: linear-gradient(transparent 0%, rgba(214, 147, 64, .5) 1%, transparent 2%),
     linear-gradient(90deg, transparent 0%, rgba(214, 147, 64, .5) 1%, transparent 2%);

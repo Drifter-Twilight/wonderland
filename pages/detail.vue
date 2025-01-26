@@ -1,6 +1,8 @@
 <template>
-  <a-row justify="center" align="start" class="scrollbar scroll-smooth box-border overflow-auto h-full pt-[64px]">
-    <nuxt-page /> 
+  <a-row justify="center" align="start" class="detail-container scrollbar scroll-smooth box-border overflow-y-auto overflow-x-hidden h-full pt-[64px] lg:pt-0">
+    <nuxt-page />
+    
+    <a-back-top target-container=".detail-container" :visible-height="500" :style="{ position: 'absolute' }" />
   </a-row>
 </template>
 
@@ -9,5 +11,9 @@
 </script>
 
 <style scoped>
-
+:deep(.arco-back-top-btn) {
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(214, 146, 64, 0.8);
+}
 </style>

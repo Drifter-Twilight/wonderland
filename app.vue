@@ -11,8 +11,17 @@
 </template>
 
 <script setup lang="ts">
-onMounted(() => {
-  document.body.setAttribute('arco-theme', 'dark')
+useHead({
+  title: '首页 · Wonderland',
+  script: [
+    {
+      // @ts-ignore
+      body: true,
+      children: `
+        document.body.setAttribute('arco-theme', 'dark')
+      `
+    }
+  ],
 })
 </script>
 

@@ -1,16 +1,16 @@
 <template>
-  <ul class="catalogue-scrollbar box-border max-h-[45vh] 2xl:max-h-[35vh] overflow-y-auto">
-    <template v-if="linkArr.length">
+  <ul class="catalogue-scrollbar box-border max-h-[45vh] 2xl:max-h-[35vh] overflow-y-auto scroll-smooth">
+    <template v-if="linkArr.length == 0">
       <div class="flex-center w-full h-[250px]">
         <a-empty />
       </div>
     </template>
     
-    <template>
+    <template v-else>
       <li 
       v-for="item in linkArr" :key="item.text" 
       :style="{ 'text-indent': `${item.depth - 2}em` }"
-      class="box-border transition-all py-2 pl-1 rounded" :class="{ 'active-anchor-link': hash == `#${item.id}` }">
+      class="box-border transition-all py-2 pl-1 rounded" :class="{ 'active-anchor-link': currentHash == `#${item.id}` }">
       <a :href="`#${item.id}`" class="line-clamp-1 text-ellipsis text-md">{{ item.text }}</a>
     </li>
     </template>
@@ -19,6 +19,7 @@
 
 <script setup lang="ts">
 import type { TocLink } from '@nuxt/content';
+import { useScrollToTarget } from '~/composables/useScrollToTarget';
 
 const props = defineProps<{
   links?: TocLink[],
@@ -26,6 +27,17 @@ const props = defineProps<{
 }>()
 
 const linkArr = reactive(getTocTextsWithIndent(props.links))
+
+let currentHash = ref('')
+onMounted(() => {
+  currentHash.value = props.hash
+  location.hash = currentHash.value
+
+  watchEffect(() => {
+    currentHash.value = props.hash
+    location.hash = currentHash.value
+  })
+})
 </script>
 
 <style scoped>
