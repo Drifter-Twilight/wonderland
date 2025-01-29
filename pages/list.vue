@@ -13,6 +13,9 @@
 </template>
 
 <script setup>
+useHead({
+  title: '博客列表 · Wonderland'
+})
 </script>
 
 <style scoped></style>

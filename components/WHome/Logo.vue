@@ -1,6 +1,6 @@
 <template>
   <div ref="scrollRef" class="flex-center relative h-full snap-start">
-    <img src="/public/images/svg/logo.svg" alt="logo" class="logo-shadow w-[35vw] lg:w-[20vw]">
+    <img src="/images/svg/logo.svg" alt="logo" class="logo-shadow w-[35vw] lg:w-[20vw]">
     <icon-double-down size="50" class="absolute bottom-8 left-1/2 -translate-x-1/2 " />
   </div>
 </template>

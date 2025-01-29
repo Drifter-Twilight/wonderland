@@ -5,9 +5,9 @@
     class="scrollbar flex-col scroll-smooth box-border overflow-x-hidden overflow-y-auto pt-[80px] h-full">
     <a-col :span="24"
       class="box-border flex justify-evenly items-center mb-24 py-4 px-4">
-      <p class="lg:text-lg text-[#D69340] font-bold">关于我</p>
-      <p class="lg:text-lg text-[#D69340] font-bold">What I do?</p>
-      <p class="lg:text-lg text-[#D69340] font-bold">关于本项目</p>
+      <a href="#me" class="lg:text-lg text-[var(--color-primary)] font-bold">关于我</a>
+      <a href="#do-what" class="lg:text-lg text-[var(--color-primary)] font-bold">What I do?</a>
+      <a href="#project" class="lg:text-lg text-[var(--color-primary)] font-bold">关于本项目</a>
     </a-col>
 
     <w-about-me />
@@ -17,6 +17,10 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: '关于 · Wonderland'
+})
+
 let scrollY = ref(0)
 function scrollHandler(e: any) {
   scrollY.value = e.target.scrollTop

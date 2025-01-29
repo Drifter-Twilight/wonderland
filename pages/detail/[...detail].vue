@@ -1,8 +1,8 @@
 <template>
   <a-col 
     v-if="data?.img"
-    :xs="24" :sm="24" :lg="22" :xxl="20" 
-    class="detail-cover flex-center z-10 overflow-hidden lg:max-h-[60vh]">
+    :span="24"
+    class="detail-cover flex-center z-10 overflow-hidden lg:max-h-[70vh] 2xl:max-h-[60vh]">
     <w-detail-cover :cover="data?.img" />
   </a-col>
 
@@ -12,7 +12,7 @@
 
     <div class="box-border overflow-hidden h-max px-8 pb-8 pt-[64px] bg-white lg:mt-0 text-black">
       <w-detail-info :title="data?.title" :date="data?.date" :update="data?.update" :tags="data?.tags" />
-      <a-divider class="bg-[#D69340]" />
+      <a-divider class="bg-[var(--color-primary)]" />
       <ContentRenderer :value="data!" class="content-container mb-10">
         <template #empty>w-
           <div class="flex-center w-full aspect-square">

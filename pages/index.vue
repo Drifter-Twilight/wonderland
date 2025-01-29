@@ -1,6 +1,6 @@
 <template>
   <nuxt-layout name="intro">
-    <template v-if="showWarn">
+    <!-- <template v-if="showWarn">
       <w-transition-fade>
         <div class="w-[90vw] lg:w-[800px] h-max space-y-4">
           <p class="text-2xl">警告：进站前详阅</p>
@@ -13,9 +13,10 @@
             除上述症状外，当您感到头痛、头晕眼花、恶心想吐或类似晕车症状时，以及当身体的某些部位感到不舒服或疼痛时，请立即退出本站。若在退出本站后，症状仍没有减退，请立即寻求医生的诊疗。</p>
         </div>
       </w-transition-fade>
-    </template>
+    </template> -->
 
-    <template v-else>
+    <!-- <template v-else> -->
+    <template>
       <div class="intro-container flex justify-center flex-col overflow-hidden relative w-full h-full">
         <p class="wonderland" data-word="WONDERLAND">WONDERLAND</p>
         <p class="source" @animationend="enterHome" data-after="WITT">PWOER BY <span>WITT</span></p>
@@ -30,14 +31,18 @@ definePageMeta({
   layout: false
 })
 
+useHead({
+  title: '起始 · Wonderland'
+})
+
 const showWarn = ref(true)
 
 let WarnTimeout: NodeJS.Timeout
-onMounted(() => {
-  WarnTimeout = setTimeout(() => {
-    showWarn.value = false
-  }, 5000)
-})
+// onMounted(() => {
+//   WarnTimeout = setTimeout(() => {
+//     showWarn.value = false
+//   }, 5000)
+// })
 
 let timeout: NodeJS.Timeout
 function enterHome() {
@@ -47,7 +52,7 @@ function enterHome() {
 }
 
 onUnmounted(() => {
-  clearTimeout(WarnTimeout)
+  // clearTimeout(WarnTimeout)
   clearTimeout(timeout)
 })
 </script>
@@ -256,13 +261,13 @@ onUnmounted(() => {
   right: 0;
   top: 0;
   font-weight: 400;
-  -webkit-text-stroke: 3px #D69340;
+  -webkit-text-stroke: 3px var(--color-primary);
   color: transparent;
   animation: source-diffuse 1.5s linear 3.5s infinite;
 }
 
 .source span {
-  -webkit-text-stroke: 3px #D69340;
+  -webkit-text-stroke: 3px var(--color-primary);
 }
 
 .skip {

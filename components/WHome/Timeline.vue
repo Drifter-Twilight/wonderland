@@ -8,7 +8,7 @@
         dotColor="#D69340" line-color="#D69340">
         <template #label>{{ item.date }}</template>
 
-        <nuxt-link :to="`/detail${item._path}`" class="text-pre-wrap mb-2 text-xl text-left font-bold text-[#D69340] line-clamp-2">{{ item.title }}</nuxt-link>
+        <nuxt-link :to="`/detail${item._path}`" class="text-pre-wrap mb-2 text-xl text-left font-bold text-[var(--color-primary)] line-clamp-2">{{ item.title }}</nuxt-link>
         <a-tag size="small">{{ item._path?.includes('articles') ? '文章' : '笔记' }}</a-tag>
       </a-timeline-item>
     </a-timeline>

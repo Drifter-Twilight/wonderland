@@ -18,6 +18,6 @@
 
 <style scoped>
 .active-bg {
-  background-color: #D69340;
+  background-color: var(--color-primary);
 }
 </style>

@@ -18,10 +18,10 @@
       class=" flex justify-between flex-col flex-1 box-border h-full lg:pt-3 lg:px-0 lg:pb-0 lg:pl-0 2xl:pt-6"
       :class="{
         'absolute left-0 top-0 px-14 pt-24 pb-16 lg:relative': isArticles,
-        'pb-3 border-b-2 border-dotted border-[#D69340] lg:pb-5': !isArticles
+        'pb-3 border-b-2 border-dotted border-[var(--color-primary)] lg:pb-5': !isArticles
       }">
       <p 
-        class="articles-title text-pre-wrap transition-all duration-300 box-border line-clamp-2 text-3xl font-bold text-[#D69340] lg:w-[75%] 2xl:w-[65%]   lg:line-clamp-1 lg:text-4xl 2xl:text-5xl"
+        class="articles-title text-pre-wrap transition-all duration-300 box-border line-clamp-2 text-3xl font-bold text-[var(--color-primary)] lg:w-[75%] 2xl:w-[65%]   lg:line-clamp-1 lg:text-4xl 2xl:text-5xl"
         :class="{ 
           'lg:-translate-x-[25%] lg:translate-y-[6vw] 2xl:translate-y-[4.5vw]': isArticles
         }">
@@ -36,19 +36,20 @@
         </p>
 
         <div 
+          class="space-x-2"
           :class="{
             'articles-besc-articles lg:text-[#141414] lg:opacity-0': isArticles,
             'articles-besc-notes lg:text-[#e1e1e1] lg:opacity-1': !isArticles
           }">
           {{ date }}
-          <w-articles-classify-tag 
-            v-for="item in tags" :key="item"
-            :content="item" />
+          <a-tag 
+            v-for="item in tags" :key="item" 
+            color="var(--color-primary)"># {{ item }}</a-tag>
         </div>
       </div>
 
       <div
-        class="arow hidden absolute transition-opacity opacity-0 duration-300 right-1 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-[#141414] text-[#D69340] sm:w-14 sm:h-14 sm:right-10 sm:text-lg lg:flex lg:justify-center lg:items-center">
+        class="arow hidden absolute transition-opacity opacity-0 duration-300 right-1 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-[#141414] text-[var(--color-primary)] sm:w-14 sm:h-14 sm:right-10 sm:text-lg lg:flex lg:justify-center lg:items-center">
         <icon-arrow-right />
       </div>
     </div>
@@ -115,7 +116,7 @@ function toDetail() {
   }
 
   .articles-li .articles-title {
-    text-shadow: 0 0 2.5px #D69340;
+    text-shadow: 0 0 2.5px var(--color-primary);
   }
 }
 </style>
