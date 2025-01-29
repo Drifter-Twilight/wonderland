@@ -7,7 +7,7 @@
     <nuxt-page />
   </nuxt-layout>
 
-  <!-- <w-background /> -->
+  <w-background />
 </template>
 
 <script setup lang="ts">

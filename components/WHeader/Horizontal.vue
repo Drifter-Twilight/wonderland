@@ -1,6 +1,6 @@
 <template>
     <w-transition-header #="{ isMove }">
-      <a-row v-if="isMove" justify="space-between" align="center" class="h-full">
+      <a-row v-if="isMove" justify="space-between" align="center" class="h-full lg:bg-transparent lg:bg-gradient-to-b lg:from-[#000] lg:to-transparen">
         <a-col :span="3" class="flex-center">
           <router-link to="/home">
             <img src="/images/svg/logo.svg" alt="logo" style="width: 2em;">

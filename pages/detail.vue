@@ -14,6 +14,6 @@
 :deep(.arco-back-top-btn) {
   width: 4rem;
   height: 4rem;
-  background-color: rgba(214, 146, 64, 0.8);
+  background-color: var(--color-primary);
 }
 </style>

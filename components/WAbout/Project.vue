@@ -1,9 +1,10 @@
 <template>
   <a-col 
     :span="24" 
+    id="project"
     class="animate__animated animate__repeat-1 relative box-border h-max opacity-0"
     :class="{ 'animate__fadeInLeft': y > 950 }">
-    <p class="mb-16 text-4xl text-center font-bold text-[#D69340]">关于本项目</p>
+    <p class="mb-16 text-4xl text-center font-bold text-[var(--color-primary)]">关于本项目</p>
 
     <p class="z-[-1] absolute left-0 top-[38%] lg:top-1/2 text-6xl lg:text-9xl font-bold">Wonderland</p>
 
@@ -48,7 +49,7 @@ defineProps<{
   transform: translateY(100%);
   width: 100%;
   height: 250px;
-  background: url('/images/jpg-png-webp/sunset.webp');
+  background: url('/images/webp/sunset.webp');
   background-size: 100% 100%;
 }
 
