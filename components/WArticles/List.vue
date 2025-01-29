@@ -36,7 +36,7 @@
         </p>
 
         <div 
-          class="space-x-2"
+          class="space-x-2" 
           :class="{
             'articles-besc-articles lg:text-[#141414] lg:opacity-0': isArticles,
             'articles-besc-notes lg:text-[#e1e1e1] lg:opacity-1': !isArticles
