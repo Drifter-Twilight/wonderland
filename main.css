@@ -3,6 +3,10 @@
   src: url("/assets/fonts/JetBrainsMono/JetBrainsMonoNL-Regular.ttf");
 }
 
+:root {
+  --color-primary: rgb(214, 147, 64);
+}
+
 html, 
 body, 
 #__nuxt {

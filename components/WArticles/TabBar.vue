@@ -20,12 +20,12 @@
     class="flex items-center justify-evenly box-border w-full h-full p-4 lg:flex-col">
     <a-collapse-item 
       v-for="(item, index) in tabBarList" :key="index" 
-      class="w-full box-border text-[#D69340] font-bold">
+      class="w-full box-border text-[var(--color-primary)] font-bold">
       <template #header>
         <div 
           class="flex-center flex-col box-border w-full text-lg">
-          <p class="text-[#D69340] font-bold">{{ item.name }}</p>
-          <p class="mt-1 mb-0 text-[#D69340] font-bold">{{ item.en }}</p>
+          <p class="text-[var(--color-primary)] font-bold">{{ item.name }}</p>
+          <p class="mt-1 mb-0 text-[var(--color-primary)] font-bold">{{ item.en }}</p>
         </div>
       </template>
 
@@ -87,11 +87,11 @@ watchEffect(() => {
 }
 
 :deep(.arco-collapse-item-active) {
-  background-color: #141414;
+  background-color: #000;
 }
 
 :deep(.arco-collapse-item-active .arco-collapse-item-content) {
-  background-color: #141414;
+  background-color: #000;
   border-bottom-left-radius: .5rem;
   border-bottom-right-radius: .5rem;
 }

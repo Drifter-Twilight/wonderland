@@ -9,7 +9,7 @@
         v-for="item in headList"
         :key="item.to"
         @pointerdown="toTarget(item.to)"
-        class="flex-center h-[64px]">
+        class="flex-center h-[64px] cursor-default">
         {{ item.content }}<small class="inline-block origin-left scale-75">/{{ item.en }}</small>
       </li>
     </ul>
@@ -19,11 +19,11 @@
     :xs="24" :lg="2" :xxl="1" 
     class="flex items-center -translate-y-[4px]"
     :class="{'justify-evenly': mode == 'horizontal', 'justify-center space-x-6': mode == 'vertical'}">
-      <a href="javascript:;">
-        <img src="/images/svg/github.svg" alt="github" />
+      <a href="https://github.com/Drifter-Twilight/wonderland" target="_blank">
+        <icon-github size="2em" />
       </a>
       
-      <a href="javascript:;">
+      <a href="https://gitee.com/witts/wonderland" target="_blank">
         <img src="/images/svg/gitee.svg" alt="gitee" />
       </a>
   </a-col>

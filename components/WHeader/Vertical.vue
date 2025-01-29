@@ -1,5 +1,5 @@
 <template>
-  <a-row justify="space-between" align="center" class="h-full">
+  <a-row justify="space-between" align="center" class="h-full bg-black/80">
     <a-col :span="3" class="flex-center">
       <img 
         src="/images/svg/logo.svg" alt="logo" 
