@@ -1,17 +1,31 @@
 <template>
   <teleport to='body'>
-    <canvas id="bg" class="absolute left-0 top-0"></canvas>
+    <canvas ref="bgRef" class="z-[-1] absolute left-0 top-0"></canvas>
   </teleport>
 </template>
 
 <script setup lang="ts">
-onMounted(() => {
-  const bg = document.querySelector<HTMLCanvasElement>('#bg')
-  const content = bg?.getContext('2d')
+const bg = useTemplateRef("bgRef")
 
-  if (bg && content) {
-    drawHome(bg, content)
+function resizeCanvas() {
+  if (bg.value) {
+    bg.value.width = window.innerWidth
+    bg.value.height = window.innerHeight
   }
+}
+
+onMounted(() => {
+  document.addEventListener('resize', resizeCanvas)
+
+  const content = bg.value?.getContext('2d')
+
+  if (bg.value && content) {
+    drawHome(bg.value, content)
+  }
+})
+
+onUnmounted(() => {
+  document.removeEventListener('resize', resizeCanvas)
 })
 </script>
 
