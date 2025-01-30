@@ -1,5 +1,5 @@
 <template>
-  <ContentList :query>
+  <content-list :query>
     <template #not-found>
       <div class="flex-center flex-col w-full h-full">
         <a-empty />
@@ -7,11 +7,17 @@
     </template>
 
     <template #default="{ list }">
-      <w-articles-list v-for="article in list" :key="article._path" :target="article._path" :cover="article.img"
-        :title="article.title" :description="article.description" :date="article.date" :tags="article.tags"
+      <w-articles-list 
+        v-for="article in list" :key="article._path" 
+        :target="article._path" 
+        :cover="article.img"
+        :title="article.title" 
+        :description="article.description" 
+        :date="article.date" 
+        :tags="article.tags"
         :type="route.params.type[1]" />
     </template>
-  </ContentList>
+  </content-list>
 </template>
 
 <script setup lang="ts">

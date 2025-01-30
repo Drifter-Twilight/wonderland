@@ -23,10 +23,10 @@ export default defineNuxtConfig({
       theme: 'monokai'
     }
   },
-  devServer: {
-    url: "http://localhost:5000"
-  },
   app: {
     baseURL: process.env.NODE_ENV === 'production' ? '/wonderland/' : '/'
   },
+  routeRules: {
+    '/list': { redirect: '/list/fe-develop/articles' },
+  }
 })

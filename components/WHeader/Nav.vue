@@ -45,7 +45,7 @@ const props = defineProps({
 
 const headList = reactive([
   {
-    to: '/list/fe-develop/articles',
+    to: '/list',
     content: '博客',
     en: 'Blogs'
   },

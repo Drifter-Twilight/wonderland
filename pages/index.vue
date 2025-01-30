@@ -16,13 +16,12 @@
     </template> -->
 
     <!-- <template v-else> -->
-    <template>
       <div class="intro-container flex justify-center flex-col overflow-hidden relative w-full h-full">
         <p class="wonderland" data-word="WONDERLAND">WONDERLAND</p>
         <p class="source" @animationend="enterHome" data-after="WITT">PWOER BY <span>WITT</span></p>
         <p class="skip" @pointerdown="navigateTo('/home')">Skip</p>
       </div>
-    </template>
+    <!-- </template> -->
   </nuxt-layout>
 </template>
 
@@ -35,9 +34,9 @@ useHead({
   title: '起始 · Wonderland'
 })
 
-const showWarn = ref(true)
+// const showWarn = ref(true)
 
-let WarnTimeout: NodeJS.Timeout
+// let WarnTimeout: NodeJS.Timeout
 // onMounted(() => {
 //   WarnTimeout = setTimeout(() => {
 //     showWarn.value = false

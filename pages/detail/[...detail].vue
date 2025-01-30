@@ -14,7 +14,7 @@
       <w-detail-info :title="data?.title" :date="data?.date" :update="data?.update" :tags="data?.tags" />
       <a-divider class="bg-[var(--color-primary)]" />
       <ContentRenderer :value="data!" class="content-container mb-10">
-        <template #empty>w-
+        <template #empty>
           <div class="flex-center w-full aspect-square">
             <a-empty />
           </div>
