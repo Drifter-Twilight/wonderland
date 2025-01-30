@@ -24,7 +24,20 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    baseURL: process.env.NODE_ENV === 'production' ? '/wonderland/' : '/'
+    baseURL: process.env.NODE_ENV === 'production' ? '/wonderland/' : '/',
+    head: {
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/favicon.ico', // 这里是 favicon 的路径
+        },
+      ],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { charset: 'UTF-8' }
+      ],
+    },
   },
   routeRules: {
     '/list': { redirect: '/list/fe-develop/articles' },

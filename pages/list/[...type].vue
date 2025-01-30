@@ -6,7 +6,7 @@
       </div>
     </template>
 
-    <template #default="{ list }">
+    <template #="{ list }">
       <w-articles-list 
         v-for="article in list" :key="article._path" 
         :target="article._path" 
@@ -27,20 +27,6 @@ const route = useRoute()
 const query: QueryBuilderParams = reactive({
   path: route.path.slice(5),
   sort: [{ date: -1 }],
-  limit: 10
-})
-
-onMounted(() => {
-  const liContainer = document.querySelector<HTMLElement>('.list-container')
-  const scroll = useScroll(shallowRef(liContainer), {
-    offset: { bottom: 800 }
-  })
-
-  watchEffect(() => {
-    if (scroll.arrivedState.bottom && query.limit) {
-      query.limit += 10
-    }
-  })
 })
 </script>
 

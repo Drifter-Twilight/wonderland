@@ -4,7 +4,7 @@
       mode="alternate" label-position="relative"
       class="w-[85vw] lg:w-[50vw] mx-auto">
       <a-timeline-item 
-        v-for="item in timelineArr" :key="item.title"
+        v-for="item in content" :key="item.title"
         dotColor="#D69340" line-color="#D69340">
         <template #label>{{ item.date }}</template>
 
@@ -16,26 +16,7 @@
 </template>
 
 <script setup lang="ts">
-let limit = 10
-const { data: content } = await useAsyncData('content', () => queryContent('/').only(['_path', 'title', 'date']).sort({ date: -1 }).limit(limit).find())
-let timelineArr = content
-
-onMounted(() => {
-    const timelineContainer = document.querySelector<HTMLElement>('.timeline-container')
-    const scroll = useScroll(shallowRef(timelineContainer), {
-      offset: { bottom: 300 }
-    })
-
-    watchEffect(async () => {
-      if (scroll.arrivedState.bottom) {
-        limit += 10
-        const list = await queryContent('/').only(['_path', 'title', 'date']).sort({ 
-          date: -1 
-        }).limit(limit).find()
-        timelineArr.value = list
-      }
-    })
-  })
+const { data: content } = await useAsyncData('content', () => queryContent('/').only(['_path', 'title', 'date']).sort({ date: -1 }).find())
 </script>
 
 <style scoped>
