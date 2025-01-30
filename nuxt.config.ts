@@ -23,9 +23,9 @@ export default defineNuxtConfig({
       theme: 'monokai'
     }
   },
-  // app: {
-  //   baseURL: process.env.NODE_ENV === 'production' ? '/wonderland/' : '/'
-  // },
+  app: {
+    baseURL: process.env.NODE_ENV === 'production' ? '/wonderland/' : '/'
+  },
   routeRules: {
     '/list': { redirect: '/list/fe-develop/articles' },
   }
