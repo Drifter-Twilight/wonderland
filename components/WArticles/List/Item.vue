@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 const route = useRoute()
+console.log(route)
 const { data } = await useAsyncData('home', () => queryContent('/' + route.query.c + '/' + route.query.t).only(['_path', 'title', 'img', 'description', 'date', 'tags']).sort({ date: -1 }).find())
 
 let list = data

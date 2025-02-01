@@ -1,6 +1,6 @@
 <template>
   <img 
-    :src="useEnv() === 'production' ? `/wonderland${cover}` : cover" alt="cover"
+    :src="cover" alt="cover"
     class="w-full">
 </template>
  
