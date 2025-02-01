@@ -5,14 +5,12 @@
     </a-col>
 
     <a-col :xs="24" :sm="24" :lg="18" :xl="19" class="h-full">
-      <ul class="list-container scrollbar box-border overflow-y-auto overflow-x-hidden h-full">
-        <nuxt-page />
-      </ul>
+      <w-articles-list />
     </a-col>
   </a-row>
 </template>
 
-<script setup>
+<script setup lang="ts">
 useHead({
   title: '博客列表 · Wonderland'
 })

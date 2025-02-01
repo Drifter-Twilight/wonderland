@@ -39,7 +39,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  routeRules: {
-    '/list': { redirect: '/list/fe-develop/articles' },
-  }
+  // routeRules: {
+  //   '/list': { redirect: '/list/fe-develop/articles' },
+  // }
 })

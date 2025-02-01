@@ -24,6 +24,7 @@
 import type { QueryBuilderParams } from '@nuxt/content'
 
 const route = useRoute()
+console.log(route)
 const query: QueryBuilderParams = reactive({
   path: route.path.slice(5),
   sort: [{ date: -1 }],

@@ -34,8 +34,14 @@
         <icon-left v-else />
       </template>
 
-      <nuxt-link :to="`/list/${item.to}/articles`" active-class="active-link" class="block w-full p-3 pl-6 text-lg">文章</nuxt-link>
-      <nuxt-link :to="`/list/${item.to}/notes`" active-class="active-link" class="block w-full p-3 pl-6 text-lg">笔记</nuxt-link>
+      <p 
+        @pointerdown="navigateTo(`/list?c=${item.to}&t=articles`)" 
+        :class="{ 'active-link': route.query.c == item.to && route.query.t == 'articles' }" 
+        class="block w-full p-3 pl-6 text-lg">文章</p>
+      <p 
+        @pointerdown="navigateTo(`/list?c=${item.to}&t=notes`)" 
+        :class="{ 'active-link': route.query.c == item.to && route.query.t == 'notes' }" 
+        class="block w-full p-3 pl-6 text-lg">笔记</p>
     </a-collapse-item>
   </a-collapse>
 </template>
@@ -58,7 +64,7 @@ const route = useRoute()
 
 let curKey = ref([0])
 watchEffect(() => { 
-  curKey.value = [tabBarList.findIndex(item => item.to == route.params.type[0])]
+  curKey.value = [tabBarList.findIndex(item => item.to == route.query.c)]
 })
 </script>
 
